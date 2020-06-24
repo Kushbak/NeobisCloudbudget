@@ -90,9 +90,13 @@ button{
 	text-align: justify;
 }
 
-
-
-
+ 
+.burger__input{
+    display: none;
+} 
+.burger__label{
+    display: none;
+}
 
 .logo__link img{
 	width: 100%;
@@ -528,6 +532,26 @@ button{
 		max-width: none;
 		width: none;
 		padding: 0 15px;
+	}
+	.burger__label{
+	    display: block;
+	}
+	#check-menu:checked ~ .navbar{
+		display: none;
+	}
+	.navbar{
+		/*display: none;*/
+	} 
+	.navbar__locale{
+		margin-bottom: 10px;
+	}
+	.navbar__links, .navbar__login-block{ 
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+	.navbar__links a{
+		margin-bottom: 10px;
 	}
 	.home__title{
 		font-size: 3.5rem;
