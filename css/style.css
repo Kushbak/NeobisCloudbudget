@@ -97,7 +97,6 @@ button{
 .burger__label{
     display: none;
 }
-
 .logo__link img{
 	width: 100%;
 }
@@ -122,9 +121,9 @@ button{
 }
 
 .navbar{
-	display: flex;
-	-webkit-justify-content: space-between;
-	        justify-content: space-between;
+	display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-gap: 10px;
 	    -webkit-align-items: center;
 	            align-items: center;
 	padding: 20px;
@@ -132,15 +131,14 @@ button{
 }
 .navbar__links{
 	display: flex;
-	-webkit-justify-content: space-around;
-	        justify-content: space-around; 
+	-webkit-justify-content: center;
+	        justify-content: center; 
 }
-.navbar__links a{
-	
+.navbar__links a{  
     padding-right: 15px;
 }
 .navbar__login-block{
-	display: flex;
+	display: flex; 
 }
 .navbar__locale{
 	display: flex;
@@ -526,21 +524,36 @@ button{
 
 @media (max-width: 578px){
 	:root{
-		font-size: 12px;
+		font-size: 13px;
 	}
 	.wrapper{
 		max-width: none;
 		width: none;
 		padding: 0 15px;
 	}
-	.burger__label{
-	    display: block;
+	.button{
+		padding: 15px 25px;
 	}
-	#check-menu:checked ~ .navbar{
-		display: none;
+	.logo{
+		grid-area: logo;
+	}
+	.burger__label{
+	    display: inline-block;
+	    color: #FFF;
+	}
+	.burger__input:checked ~ .navbar{
+		display: grid;  
+		grid-template-columns: 1fr 1fr;
+		grid-template-areas: 'logo logo'
+			'links inputs';
+		text-align: center;
+		height: 15vh;
+	}
+	.logo__link img {
+	    width: 80%;
 	}
 	.navbar{
-		/*display: none;*/
+		display: none; 
 	} 
 	.navbar__locale{
 		margin-bottom: 10px;
@@ -549,15 +562,24 @@ button{
 		-webkit-flex-direction: column;
 		    -ms-flex-direction: column;
 		        flex-direction: column;
+	    -webkit-align-items: center;
+	            align-items: center;
+	    
+	}
+	.navbar__links{
+	    grid-area: links;		
 	}
 	.navbar__links a{
 		margin-bottom: 10px;
 	}
+	.navbar__login-block{
+	    grid-area: inputs;	
+	}
 	.home__title{
-		font-size: 3.5rem;
+		font-size: 3rem;
 	}
 	.home__descr {
-	    font-size: 1.3rem;
+	    font-size: 1.1rem;
     }
     .overview-block{
     	-webkit-flex-direction: column;
@@ -592,5 +614,8 @@ button{
 		-webkit-flex-direction: column;
 		    -ms-flex-direction: column;
 		        flex-direction: column;
+	}
+	.form{
+	    grid-gap: 10px;
 	}
 }
