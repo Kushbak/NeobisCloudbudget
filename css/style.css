@@ -30,7 +30,9 @@ a{
 	text-decoration: none;
 	color: #FFF;
 }
-
+.burger, .burger-input{
+	display: none;
+} 
 
 button{
 	cursor: pointer;
@@ -96,7 +98,7 @@ button{
 } 
 .burger__label{
     display: none;
-}
+} 
 .logo__link img{
 	width: 100%;
 }
@@ -508,6 +510,82 @@ button{
 	:root{
 		font-size: 14px;
 	}
+
+	.navbar{
+		display: none; 
+		padding: 0;
+		height: 100%; 
+		grid-template-columns: repeat(1, 1fr);
+		grid-template-rows: 1fr 2fr 1fr;
+		text-align: center;
+	}
+	.burger{
+    	display: block;
+    	margin: 5px 0;  
+    }
+    .burger__btn{
+		display: block;
+		position: relative;
+	    width: 50px;
+	    height: 50px;
+    	-webkit-border-radius: 50%;
+    	        border-radius: 50%;
+    	background: #FFF;
+	}
+	.burger__line, 
+	.burger__line::after, 
+	.burger__line::before{
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin: -1px 0 0 -10px; 
+		width: 20px;
+		height: 2px;
+		background: #000;  
+	}
+	.burger__line::before{
+		content: "";  
+		-webkit-transform: translateY(6px);
+		   -moz-transform: translateY(6px);
+		    -ms-transform: translateY(6px);
+		     -o-transform: translateY(6px);
+		        transform: translateY(6px);
+	}
+	.burger__line::after{
+		content: "";  
+		-webkit-transform: translateY(-6px);
+		   -moz-transform: translateY(-6px);
+		    -ms-transform: translateY(-6px);
+		     -o-transform: translateY(-6px);
+		        transform: translateY(-6px);
+	}
+
+	.burger-input:checked ~ .navbar{
+		display: grid;
+	}
+	.logo{
+		text-align: center;
+	} 
+	.logo__link{
+		margin-bottom: 30px;
+	}
+	.logo__link img{
+		width: 40%;
+	}
+	.navbar__login-block{
+		-webkit-justify-content: center;
+		        justify-content: center;
+	}
+	.navbar__links{
+		-webkit-align-items: center;
+		        align-items: center;
+		-webkit-flex-direction: column;
+		    -ms-flex-direction: column;
+		        flex-direction: column;
+	}
+	.navbar__links a{
+		padding: 0 0 15px 0;
+	}
 	.navbar__locale img{
 		display: none;
 	} 
@@ -533,48 +611,7 @@ button{
 	}
 	.button{
 		padding: 15px 25px;
-	}
-	.logo{
-		grid-area: logo;
-	}
-	.burger__label{
-	    display: inline-block;
-	    color: #FFF;
-	}
-	.burger__input:checked ~ .navbar{
-		display: grid;  
-		grid-template-columns: 1fr 1fr;
-		grid-template-areas: 'logo logo'
-			'links inputs';
-		text-align: center;
-		height: 15vh;
-	}
-	.logo__link img {
-	    width: 80%;
-	}
-	.navbar{
-		display: none; 
 	} 
-	.navbar__locale{
-		margin-bottom: 10px;
-	}
-	.navbar__links, .navbar__login-block{ 
-		-webkit-flex-direction: column;
-		    -ms-flex-direction: column;
-		        flex-direction: column;
-	    -webkit-align-items: center;
-	            align-items: center;
-	    
-	}
-	.navbar__links{
-	    grid-area: links;		
-	}
-	.navbar__links a{
-		margin-bottom: 10px;
-	}
-	.navbar__login-block{
-	    grid-area: inputs;	
-	}
 	.home__title{
 		font-size: 3rem;
 	}
